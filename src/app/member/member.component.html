@@ -1,0 +1,76 @@
+<!--
+<table border="1px">
+  <tr>
+    <td>ID</td>
+    <td>CIN</td>
+    <td>NAME</td>
+    <td>TYPE</td>
+    <td>CV</td>
+    <td>CREATEDDATE</td>
+  </tr>
+  <tbody>
+  <tr *ngFor="let element of dataSource">
+    <td>{{ element.id }}</td>
+    <td>{{ element.cin }}</td>
+    <td>{{ element.name }}</td>
+    <td>{{ element.type }}</td>
+    <td>{{ element.cv }}</td>
+    <td>{{ element.createdDate }}</td>
+  </tr>
+  </tbody>
+</table>
+-->
+<button class="styled-button">Add Member</button>
+<table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th *matHeaderCellDef mat-header-cell> ID</th>
+    <td *matCellDef="let element" mat-cell> {{ element.id }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="cin">
+    <th *matHeaderCellDef mat-header-cell> CIN</th>
+    <td *matCellDef="let element" mat-cell> {{ element.cin }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="name">
+    <th *matHeaderCellDef mat-header-cell> Name</th>
+    <td *matCellDef="let element" mat-cell> {{ element.name }}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="type">
+    <th *matHeaderCellDef mat-header-cell> Type</th>
+    <td *matCellDef="let element" mat-cell> {{ element.type }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="cv">
+    <th *matHeaderCellDef mat-header-cell> CV</th>
+    <td *matCellDef="let element" mat-cell> {{ element.cv }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="createdDate">
+    <th *matHeaderCellDef mat-header-cell> Created Date</th>
+    <td *matCellDef="let element" mat-cell> {{ element.createdDate }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Actions">
+    <th *matHeaderCellDef mat-header-cell> Actions</th>
+    <td *matCellDef="let element" mat-cell>
+      <mat-icon>edit</mat-icon>
+      <mat-icon>delete</mat-icon>
+    </td>
+  </ng-container>
+
+
+  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+</table>
+
+

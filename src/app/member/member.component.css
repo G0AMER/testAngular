@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+}
+
+/* Style du bouton */
+.styled-button {
+  background-color: #0f52ba; /* Couleur de fond */
+  border: none; /* Pas de bordure */
+  color: white; /* Couleur du texte */
+  padding: 15px 32px; /* Espacement interne */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de soulignement */
+  display: inline-block; /* Bloc en ligne */
+  font-size: 16px; /* Taille du texte */
+  margin: 4px 2px; /* Marges */
+  cursor: pointer; /* Curseur de la souris */
+  border-radius: 12px; /* Coins arrondis */
+  transition: background-color 0.3s ease; /* Transition fluide */
+}
+
+/* Effet de survol (hover) */
+.styled-button:hover {
+  background-color: #0f52ba; /* Couleur de fond au survol */
+}
