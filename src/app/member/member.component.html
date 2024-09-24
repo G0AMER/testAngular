@@ -20,7 +20,7 @@
   </tbody>
 </table>
 -->
-<button class="styled-button">Add Member</button>
+<button class="styled-button" routerLink="/create">Add Member</button>
 <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
 
   <!--- Note that these columns can be defined in any order.
@@ -64,7 +64,7 @@
     <th *matHeaderCellDef mat-header-cell> Actions</th>
     <td *matCellDef="let element" mat-cell>
       <mat-icon>edit</mat-icon>
-      <mat-icon>delete</mat-icon>
+      <mat-icon (click)="deleteMember(element)">delete</mat-icon>
     </td>
   </ng-container>
 

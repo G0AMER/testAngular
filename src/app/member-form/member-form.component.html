@@ -1,0 +1,43 @@
+<html>
+<form (ngSubmit)="submit()" [formGroup]="form" class="form-container">
+  <div class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Name</mat-label>
+      <input formControlName="name" matInput placeholder="Enter your name">
+
+    </mat-form-field>
+  </div>
+
+  <div class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>CIN</mat-label>
+      <input formControlName="cin" matInput placeholder="Enter your CIN">
+
+    </mat-form-field>
+  </div>
+
+  <div class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Type</mat-label>
+      <input formControlName="type" matInput placeholder="Enter the type">
+
+    </mat-form-field>
+  </div>
+
+  <div class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>CV</mat-label>
+      <input formControlName="cv" matInput placeholder="Enter CV details">
+
+    </mat-form-field>
+  </div>
+
+  <div class="button-container">
+    <button [disabled]="form.invalid" class="submit-button" color="primary" mat-raised-button type="submit">
+      Submit
+    </button>
+  </div>
+</form>
+
+
+</html>

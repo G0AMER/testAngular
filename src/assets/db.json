@@ -1,20 +1,12 @@
 {
   "members": [
     {
-      "id": "12345",
-      "cin": "12345678",
+      "id": "9fd0",
+      "cin": "1233",
       "name": "amer",
-      "type": "teacher",
-      "cv": "lien",
-      "createdDate": "12/12/2024"
-    },
-    {
-      "id": "54321",
-      "cin": "87654321",
-      "name": "gargouri",
+      "cv": "cvcv",
       "type": "student",
-      "cv": "lien1",
-      "createdDate": "17/12/2024"
+      "createdDate": "2024-09-24T11:01:42.469Z"
     }
   ]
 }
