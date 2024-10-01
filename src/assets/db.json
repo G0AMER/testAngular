@@ -7,6 +7,14 @@
       "cv": "cvcv",
       "type": "student",
       "createdDate": "2024-09-24T11:01:42.469Z"
+    },
+    {
+      "id": "8e7b",
+      "cin": "123456789",
+      "name": "gargouri",
+      "cv": "cv",
+      "type": "teacher",
+      "createdDate": "2024-10-01T09:38:56.555Z"
     }
   ]
 }

@@ -5,8 +5,10 @@ import {MemberComponent} from "./member/member.component";
 import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
-  {path: 'create', component: MemberFormComponent,},
-  {path: '', component: MemberComponent,},
+  {path: 'create', component: MemberFormComponent, pathMatch: 'full'},
+  {path: '', component: MemberComponent, pathMatch: 'full'},
+  {path: ':id/edit', component: MemberFormComponent, pathMatch: 'full'},
+  {path: '**', component: MemberFormComponent}
 ];
 
 export const appConfig: ApplicationConfig = {

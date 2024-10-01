@@ -34,10 +34,8 @@ export class MemberComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this._memberService.getAllMembers().then((housingLocationList: Member[]) => {
       this.dataSource = housingLocationList;
-
     });
 
   }
