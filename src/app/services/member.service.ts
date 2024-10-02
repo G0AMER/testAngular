@@ -33,5 +33,12 @@ export class MemberService {
     return await data.json() ?? [];
   }
 
+  getMemberById(id: string): Observable<Member> {
+    console.log(`http://localhost:3000/members/${id}`);
+    return this.http.get<Member>(`http://localhost:3000/members/${id}`);
+  }
 
+  updateMember(id: string, member: Member): Observable<void> {
+    return this.http.put<void>(`http://localhost:3000/members/${id}`, member);
+  }
 }
