@@ -16,5 +16,14 @@
       "createdDate": "2024-10-02T08:10:02.921Z",
       "id": "8e7b"
     }
+  ],
+  "Evnt": [
+    {
+      "id": 12,
+      "title": "conf",
+      "dateDebut": "12/02/2024",
+      "dateFin": "15/02/2024",
+      "lieu": "Sfax"
+    }
   ]
 }

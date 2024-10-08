@@ -1,0 +1,44 @@
+<html>
+<form (ngSubmit)="submit()" [formGroup]="form" class="form-container">
+
+
+  <div class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Title</mat-label>
+      <input formControlName="title" matInput placeholder="Enter event title">
+
+    </mat-form-field>
+  </div>
+
+  <div class="form-field">
+    <!--<mat-form-field appearance="fill" class="full-width">
+      <mat-label>Check-in</mat-label>
+      <input formControlName="dateDebut" matInput placeholder="Enter the check-in date">
+
+    </mat-form-field>-->
+    <mat-form-field>
+      <mat-label>Check-in</mat-label>
+      <input [matDatepicker]="picker" formControlName="dateDebut" matInput>
+      <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="form-field">
+    <mat-form-field>
+      <mat-label>Check-out</mat-label>
+      <input [matDatepicker]="picker" formControlName="dateFin" matInput>
+      <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="button-container">
+    <button [disabled]="form.invalid" class="submit-button" color="primary" mat-raised-button type="submit">
+      Submit
+    </button>
+  </div>
+</form>
+
+
+</html>

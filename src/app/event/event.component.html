@@ -1,1 +1,49 @@
-<p>event works!</p>
+<button (click)="openDialog()" class="styled-button">Add Event</button>
+
+<table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th *matHeaderCellDef mat-header-cell> ID</th>
+    <td *matCellDef="let element" mat-cell> {{ element.id }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="title">
+    <th *matHeaderCellDef mat-header-cell> Title</th>
+    <td *matCellDef="let element" mat-cell> {{ element.title }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="DateDebut">
+    <th *matHeaderCellDef mat-header-cell> Check-in</th>
+    <td *matCellDef="let element" mat-cell> {{ element.dateDebut }}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="DateFin">
+    <th *matHeaderCellDef mat-header-cell> Check-out</th>
+    <td *matCellDef="let element" mat-cell> {{ element.dateFin }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Lieu">
+    <th *matHeaderCellDef mat-header-cell> Location</th>
+    <td *matCellDef="let element" mat-cell> {{ element.lieu }}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="Actions">
+    <th *matHeaderCellDef mat-header-cell> Actions</th>
+    <td *matCellDef="let element" mat-cell>
+      <mat-icon routerLink="/edit/{{element.id}}">edit</mat-icon>
+      <mat-icon (click)="deleteEvent(element)">delete</mat-icon>
+    </td>
+  </ng-container>
+
+
+  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+</table>

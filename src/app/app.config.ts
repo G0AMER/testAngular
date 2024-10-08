@@ -11,6 +11,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {ToolComponent} from "./tool/tool.component";
 import {ArticleComponent} from "./article/article.component";
 import {EventComponent} from "./event/event.component";
+import {MAT_DATE_LOCALE} from "@angular/material/core";
 
 const routes: Routes = [
   {path: '', component: LoginComponent, pathMatch: 'full'},
@@ -44,7 +45,7 @@ export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), importProvidersFrom(HttpClientModule), provideAnimations(), {
     provide: FIREBASE_OPTIONS,
     useValue: firebaseConfig
-  }],
+  }, {provide: MAT_DATE_LOCALE, useValue: 'fr'}],
 
 };
 
