@@ -27,17 +27,25 @@
   <div class="form-field">
     <mat-form-field>
       <mat-label>Check-out</mat-label>
-      <input [matDatepicker]="picker" formControlName="dateFin" matInput>
-      <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <input [matDatepicker]="picker1" formControlName="dateFin" matInput>
+      <mat-datepicker-toggle [for]="picker1" matIconSuffix></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
   </div>
 
-  <div class="button-container">
-    <button [disabled]="form.invalid" class="submit-button" color="primary" mat-raised-button type="submit">
-      Submit
-    </button>
+  <div class="form-field">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Location</mat-label>
+      <input formControlName="lieu" matInput placeholder="Enter event location">
+
+    </mat-form-field>
   </div>
+
+  <mat-dialog-actions>
+    <button (click)="close()" class="mat-raised-button">Close</button>
+    <button (click)="save()" class="mat-raised-button mat-primary">Save</button>
+  </mat-dialog-actions>
+
 </form>
 
 

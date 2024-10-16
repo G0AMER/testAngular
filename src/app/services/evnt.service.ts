@@ -22,4 +22,12 @@ export class EvntService {
     const urlId = `http://localhost:3000/Evnt/${id}`;
     return this.http.delete<void>(urlId);
   }
+
+  addEvent(data: Evnt) {
+    return this.http.post<void>('http://localhost:3000/Evnt', data);
+  }
+
+  UpdateEvent(data: Evnt) {
+    return this.http.put<void>(`http://localhost:3000/events/${data.id}`, data);
+  }
 }

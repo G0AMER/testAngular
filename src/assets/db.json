@@ -1,12 +1,12 @@
 {
   "members": [
     {
-      "id": "9fd0",
       "cin": "1233",
       "name": "amer",
-      "cv": "cvcv",
+      "cv": "cv1",
       "type": "student",
-      "createdDate": "2024-09-24T11:01:42.469Z"
+      "createdDate": "2024-10-16T08:41:02.254Z",
+      "id": "9fd0"
     },
     {
       "cin": "1234567890",
@@ -19,7 +19,7 @@
   ],
   "Evnt": [
     {
-      "id": 12,
+      "id": "12",
       "title": "conf",
       "dateDebut": "12/02/2024",
       "dateFin": "15/02/2024",

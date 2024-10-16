@@ -5,13 +5,13 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {MatButtonModule} from "@angular/material/button";
 import {ActivatedRoute, Router} from "@angular/router";
 import {EvntService} from "../services/evnt.service";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @Component({
   selector: 'app-event-form',
   standalone: true,
-  imports: [CommonModule, MatInputModule, ReactiveFormsModule, MatButtonModule, MatDatepickerModule],
+  imports: [CommonModule, MatInputModule, ReactiveFormsModule, MatButtonModule, MatDatepickerModule, MatDialogModule],
   templateUrl: './event-form.component.html',
   styleUrls: ['./event-form.component.css']
 })
@@ -33,11 +33,19 @@ export class EventFormComponent {
       title: new FormControl(null, [Validators.required]),
       dateDebut: new FormControl(null, [Validators.required]),
       dateFin: new FormControl(null, [Validators.required]),
-      Location: new FormControl(null, [Validators.required]),
+      lieu: new FormControl(null, [Validators.required]),
     })
   }
 
   submit() {
 
+  }
+
+  save() {
+    this.dialogRef.close(this.form.value);
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 }

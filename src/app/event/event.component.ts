@@ -5,7 +5,7 @@ import {Evnt} from "../../models/Event";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTableModule} from "@angular/material/table";
 import {RouterLink} from "@angular/router";
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {EventFormComponent} from "../event-form/event-form.component";
 
 @Component({
@@ -20,7 +20,7 @@ export class EventComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title', 'DateDebut', 'DateFin', 'Lieu', 'Actions'];
 
 
-  constructor(private ES: EvntService, public dialogRef: MatDialog) {
+  constructor(private ES: EvntService, public dialogRef: MatDialog, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -29,8 +29,23 @@ export class EventComponent implements OnInit {
     })
   }
 
-  openDialog(): void {
-    let dialogRef = this.dialogRef.open(EventFormComponent)
+  openDialog() {
+
+
+    //this.dialog.open(EventFormComponent, dialogConfig);
+
+    const dialogRef = this.dialog.open(EventFormComponent);
+
+    dialogRef.afterClosed().subscribe((data: Evnt) => {
+        if (data.lieu && data.id && data.dateFin && data.dateDebut && data.titre) {
+          this.ES.addEvent(data).subscribe(() => {
+            this.ES.getAllEvents().subscribe((data) => {
+              this.dataSource = data;
+            })
+          })
+        }
+      }
+    );
   }
 
   deleteEvent(element: Evnt) {
@@ -42,5 +57,27 @@ export class EventComponent implements OnInit {
       console.error('Error deleting member', error);
     });
     this.ngOnInit();
+  }
+
+  openDialogToModify(data:Evnt) {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = data;
+    console.log(dialogConfig.data);
+    const dialogRef = this.dialog.open(EventFormComponent,dialogConfig);
+    dialogRef.afterClosed().subscribe((data: Evnt) => {
+        if (data.lieu && data.id && data.dateFin && data.dateDebut && data.titre) {
+          this.ES.UpdateEvent(data).subscribe(() => {
+            this.ES.getAllEvents().subscribe((data) => {
+              this.dataSource = data;
+            })
+          })
+        }
+      }
+    );
   }
 }

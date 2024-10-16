@@ -12,12 +12,15 @@ import {ToolComponent} from "./tool/tool.component";
 import {ArticleComponent} from "./article/article.component";
 import {EventComponent} from "./event/event.component";
 import {MAT_DATE_LOCALE} from "@angular/material/core";
+import {EventFormComponent} from "./event-form/event-form.component";
+import {MatDialogRef} from "@angular/material/dialog";
 
 const routes: Routes = [
   {path: '', component: LoginComponent, pathMatch: 'full'},
   {path: 'create', component: MemberFormComponent, pathMatch: 'full'},
   {path: 'member', component: MemberComponent, pathMatch: 'full'},
-  {path: ':id/edit', component: MemberFormComponent, pathMatch: 'full'},
+  {path: 'edit/:id', component: MemberFormComponent, pathMatch: 'full'},
+  {path: 'editEvent/:id', component: EventFormComponent, pathMatch: 'full'},
   {
     path: 'dashboard',
     pathMatch: 'full',
@@ -45,7 +48,7 @@ export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), importProvidersFrom(HttpClientModule), provideAnimations(), {
     provide: FIREBASE_OPTIONS,
     useValue: firebaseConfig
-  }, {provide: MAT_DATE_LOCALE, useValue: 'fr'}],
+  }, {provide: MAT_DATE_LOCALE, useValue: 'fr'}, {provide: MatDialogRef, useValue: {}},],
 
 };
 

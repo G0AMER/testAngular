@@ -38,7 +38,7 @@
   <ng-container matColumnDef="Actions">
     <th *matHeaderCellDef mat-header-cell> Actions</th>
     <td *matCellDef="let element" mat-cell>
-      <mat-icon routerLink="/edit/{{element.id}}">edit</mat-icon>
+      <mat-icon (click)="openDialogToModify(element)" >edit</mat-icon>
       <mat-icon (click)="deleteEvent(element)">delete</mat-icon>
     </td>
   </ng-container>
